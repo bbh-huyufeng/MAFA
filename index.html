@@ -1,0 +1,585 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="MAFA project page for multi-humanoid cooperative extreme traction.">
+  <meta name="keywords" content="humanoid robots, cooperative traction, force-aware learning, multi-robot coordination">
+  <meta name="robots" content="noindex,nofollow">
+  <link rel="canonical" href="https://bbh-huyufeng.github.io/MAFA/">
+
+  <meta property="og:title" content="MAFA: Multi-Humanoid Cooperative Extreme Traction">
+  <meta property="og:description" content="Project page for adaptive force-aware multi-humanoid traction.">
+  <meta property="og:url" content="https://bbh-huyufeng.github.io/MAFA/">
+  <meta property="og:image" content="https://bbh-huyufeng.github.io/MAFA/website_assets/real_world.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="MAFA: Multi-Humanoid Cooperative Extreme Traction">
+  <meta name="twitter:description" content="Project page for adaptive force-aware multi-humanoid traction.">
+  <meta name="twitter:image" content="https://bbh-huyufeng.github.io/MAFA/website_assets/real_world.png">
+
+  <title>MAFA: Multi-Humanoid Cooperative Extreme Traction</title>
+
+  <style>
+    :root {
+      --ink: #14191f;
+      --muted: #5c6672;
+      --paper: #ffffff;
+      --soft: #f6f7f8;
+      --line: #dde3e8;
+      --accent: #b34d20;
+      --accent-2: #2e6f82;
+      --dark: #101820;
+      --shadow: 0 18px 42px rgba(16, 24, 32, 0.14);
+      --radius: 8px;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      color: var(--ink);
+      background: var(--paper);
+      line-height: 1.6;
+    }
+
+    a {
+      color: inherit;
+    }
+
+    img,
+    video {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+
+    .container {
+      width: min(1120px, calc(100% - 36px));
+      margin: 0 auto;
+    }
+
+    .hero {
+      position: relative;
+      min-height: 92vh;
+      overflow: hidden;
+      color: #fff;
+      background: #111820;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .hero-media,
+    .hero-media video,
+    .hero-media img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+    }
+
+    .hero-media video,
+    .hero-media img {
+      object-fit: cover;
+    }
+
+    .hero-media img {
+      filter: saturate(1.04) contrast(1.02);
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(180deg, rgba(7, 12, 18, 0.62) 0%, rgba(7, 12, 18, 0.28) 44%, rgba(7, 12, 18, 0.82) 100%),
+        linear-gradient(90deg, rgba(5, 10, 15, 0.72), rgba(5, 10, 15, 0.18) 52%, rgba(5, 10, 15, 0.62));
+      pointer-events: none;
+    }
+
+    .nav {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+      padding: 26px 0;
+    }
+
+    .brand {
+      font-size: 1.06rem;
+      font-weight: 850;
+      text-decoration: none;
+      letter-spacing: 0;
+    }
+
+    .nav-links {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+      gap: 20px;
+      color: rgba(255, 255, 255, 0.86);
+      font-size: 0.96rem;
+      font-weight: 650;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      border-bottom: 2px solid transparent;
+    }
+
+    .nav-links a:hover {
+      border-bottom-color: #fff;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 1;
+      padding: 72px 0 82px;
+      text-align: center;
+    }
+
+    .kicker {
+      margin: 0 auto 18px;
+      width: fit-content;
+      max-width: 100%;
+      padding: 7px 14px;
+      border: 1px solid rgba(255, 255, 255, 0.34);
+      border-radius: 999px;
+      color: rgba(255, 255, 255, 0.94);
+      background: rgba(255, 255, 255, 0.11);
+      backdrop-filter: blur(8px);
+      font-weight: 750;
+      font-size: 0.9rem;
+    }
+
+    h1 {
+      margin: 0 auto;
+      max-width: 1080px;
+      font-size: clamp(3.4rem, 10vw, 9rem);
+      line-height: 0.92;
+      letter-spacing: 0;
+      text-shadow: 0 4px 28px rgba(0, 0, 0, 0.42);
+    }
+
+    .hero-subtitle {
+      max-width: 1040px;
+      margin: 22px auto 0;
+      font-size: clamp(1.24rem, 3.8vw, 3.35rem);
+      line-height: 1.08;
+      font-weight: 760;
+      text-shadow: 0 4px 24px rgba(0, 0, 0, 0.5);
+    }
+
+    .authors {
+      max-width: 940px;
+      margin: 22px auto 0;
+      color: rgba(255, 255, 255, 0.9);
+      font-size: clamp(1rem, 1.8vw, 1.28rem);
+      font-weight: 650;
+    }
+
+    .actions {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 12px;
+      margin-top: 30px;
+    }
+
+    .button {
+      min-height: 42px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0 18px;
+      border-radius: 999px;
+      border: 1px solid rgba(255, 255, 255, 0.26);
+      background: #ffffff;
+      color: #111820;
+      text-decoration: none;
+      font-weight: 800;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.18);
+    }
+
+    .button.dark {
+      background: #111820;
+      color: #fff;
+      border-color: #111820;
+    }
+
+    .button.disabled {
+      cursor: default;
+      opacity: 0.72;
+      background: rgba(255, 255, 255, 0.16);
+      color: rgba(255, 255, 255, 0.9);
+      box-shadow: none;
+    }
+
+    .scroll-hint {
+      position: relative;
+      z-index: 1;
+      margin: 0 auto 28px;
+      color: rgba(255, 255, 255, 0.78);
+      font-size: 0.92rem;
+      text-align: center;
+    }
+
+    section {
+      padding: 68px 0;
+    }
+
+    section.soft {
+      background: var(--soft);
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .section-title {
+      margin: 0 0 16px;
+      text-align: center;
+      font-size: clamp(1.8rem, 4vw, 3rem);
+      line-height: 1.14;
+      letter-spacing: 0;
+    }
+
+    .section-lead {
+      max-width: 820px;
+      margin: 0 auto 34px;
+      color: var(--muted);
+      text-align: center;
+      font-size: 1.08rem;
+    }
+
+    .video-frame {
+      overflow: hidden;
+      border-radius: var(--radius);
+      background: #0f151b;
+      box-shadow: var(--shadow);
+    }
+
+    .video-frame video,
+    .video-frame img {
+      aspect-ratio: 16 / 9;
+      object-fit: cover;
+      background: #0f151b;
+    }
+
+    .caption {
+      margin: 0;
+      padding: 13px 16px;
+      color: var(--muted);
+      background: #fff;
+      border: 1px solid var(--line);
+      border-top: 0;
+      border-radius: 0 0 var(--radius) var(--radius);
+      font-size: 0.95rem;
+      text-align: center;
+    }
+
+    .summary-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 16px;
+      margin-top: 34px;
+    }
+
+    .summary {
+      min-height: 182px;
+      padding: 22px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: #fff;
+      box-shadow: 0 10px 28px rgba(16, 24, 32, 0.06);
+    }
+
+    .summary h3,
+    .demo h3,
+    .release h3 {
+      margin: 0 0 8px;
+      font-size: 1.08rem;
+      line-height: 1.28;
+    }
+
+    .summary p,
+    .demo p,
+    .release p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 0.98rem;
+    }
+
+    .figure-frame {
+      margin-top: 34px;
+      overflow: hidden;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: #fff;
+      box-shadow: var(--shadow);
+    }
+
+    .figure-frame img {
+      object-fit: contain;
+      background: #fff;
+    }
+
+    .demo-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 16px;
+    }
+
+    .demo {
+      overflow: hidden;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: #fff;
+      box-shadow: 0 10px 28px rgba(16, 24, 32, 0.06);
+    }
+
+    .demo video,
+    .demo img {
+      aspect-ratio: 16 / 10;
+      object-fit: cover;
+      background: #101820;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .demo-body {
+      padding: 18px;
+    }
+
+    .release {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 24px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: #fff;
+      box-shadow: 0 10px 28px rgba(16, 24, 32, 0.06);
+      text-align: center;
+    }
+
+    .release-actions {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 10px;
+      margin-top: 20px;
+    }
+
+    footer {
+      padding: 32px 0;
+      color: var(--muted);
+      text-align: center;
+      border-top: 1px solid var(--line);
+      background: #fff;
+    }
+
+    @media (max-width: 900px) {
+      .hero {
+        min-height: 860px;
+      }
+
+      .nav {
+        align-items: flex-start;
+        flex-direction: column;
+        padding: 18px 0;
+      }
+
+      .nav-links {
+        justify-content: flex-start;
+        gap: 14px;
+      }
+
+      .hero-content {
+        padding-top: 42px;
+      }
+
+      .summary-grid,
+      .demo-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 560px) {
+      .container {
+        width: min(100% - 24px, 1120px);
+      }
+
+      .hero {
+        min-height: 820px;
+      }
+
+      .actions,
+      .release-actions {
+        align-items: stretch;
+        flex-direction: column;
+      }
+
+      .button {
+        width: 100%;
+      }
+
+      section {
+        padding: 48px 0;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header class="hero">
+    <div class="hero-media" aria-hidden="true">
+      <video autoplay muted loop playsinline preload="metadata" poster="website_assets/real_world.png">
+        <source src="media/hero.mp4" type="video/mp4">
+      </video>
+    </div>
+
+    <nav class="container nav" aria-label="Project navigation">
+      <a class="brand" href="https://bbh-huyufeng.github.io/MAFA/">MAFA</a>
+      <div class="nav-links">
+        <a href="#video">Video</a>
+        <a href="#overview">Overview</a>
+        <a href="#demos">Demos</a>
+        <a href="#release">Release</a>
+      </div>
+    </nav>
+
+    <div class="container hero-content">
+      <p class="kicker">Project Page</p>
+      <h1>MAFA</h1>
+      <p class="hero-subtitle">Multi-Humanoid Cooperative Extreme Traction via Adaptive Force-Aware Learning</p>
+      <p class="authors">Alex Chen, Maya Li, David Wang, Sophia Zhang, and Kevin Liu</p>
+      <div class="actions">
+        <a class="button dark" href="#video">Video</a>
+        <span class="button disabled">Paper Coming Soon</span>
+        <span class="button disabled">Code Coming Soon</span>
+      </div>
+    </div>
+
+    <p class="scroll-hint">Project URL: https://bbh-huyufeng.github.io/MAFA/</p>
+  </header>
+
+  <main>
+    <section id="video">
+      <div class="container">
+        <h2 class="section-title">Video</h2>
+        <p class="section-lead">
+          A compact preview of real-world and simulated cooperative traction demonstrations.
+        </p>
+        <div class="video-frame">
+          <video controls muted playsinline preload="metadata" poster="website_assets/real_world.png">
+            <source src="media/overview.mp4" type="video/mp4">
+          </video>
+        </div>
+        <p class="caption">Overview demonstration of cooperative humanoid traction.</p>
+      </div>
+    </section>
+
+    <section id="overview" class="soft">
+      <div class="container">
+        <h2 class="section-title">Overview</h2>
+        <p class="section-lead">
+          MAFA studies force-aware humanoid traction with a reusable pulling skill and a compact coordinator for multi-humanoid teamwork.
+        </p>
+
+        <div class="summary-grid">
+          <article class="summary">
+            <h3>Force-Aware Traction</h3>
+            <p>A humanoid traction skill adapts body posture and stepping behavior under strong physical interaction.</p>
+          </article>
+          <article class="summary">
+            <h3>Hierarchical Cooperation</h3>
+            <p>A high-level policy coordinates multiple humanoids through a compact command interface.</p>
+          </article>
+          <article class="summary">
+            <h3>Hardware-Oriented Design</h3>
+            <p>The system is organized around deployable observations and real robot demonstration workflows.</p>
+          </article>
+        </div>
+
+        <figure class="figure-frame">
+          <img src="website_assets/overview.png" alt="MAFA framework overview.">
+        </figure>
+      </div>
+    </section>
+
+    <section id="demos">
+      <div class="container">
+        <h2 class="section-title">Experiment Demos</h2>
+        <p class="section-lead">
+          Real-world and simulation clips for single-humanoid traction, cooperative team pulling, and larger-team extension.
+        </p>
+
+        <div class="demo-grid">
+          <article class="demo">
+            <video controls muted playsinline preload="metadata" poster="website_assets/real_world.png">
+              <source src="media/single_humanoid_traction.mp4" type="video/mp4">
+            </video>
+            <div class="demo-body">
+              <h3>Single-Humanoid Traction</h3>
+              <p>Real-world pulling behavior on the humanoid platform.</p>
+            </div>
+          </article>
+
+          <article class="demo">
+            <video controls muted playsinline preload="metadata" poster="website_assets/real_world.png">
+              <source src="media/two_humanoid_cooperative_traction.mp4" type="video/mp4">
+            </video>
+            <div class="demo-body">
+              <h3>Two-Humanoid Cooperation</h3>
+              <p>Team traction with coordinated retreat and compatible pulling postures.</p>
+            </div>
+          </article>
+
+          <article class="demo">
+            <video controls muted playsinline preload="metadata" poster="website_assets/three_humanoid.png">
+              <source src="media/three_humanoid_simulation.mp4" type="video/mp4">
+            </video>
+            <div class="demo-body">
+              <h3>Multi-Humanoid Simulation</h3>
+              <p>Simulation preview for larger-team cooperative traction.</p>
+            </div>
+          </article>
+        </div>
+
+        <figure class="figure-frame">
+          <img src="website_assets/three_humanoid.png" alt="Multi-humanoid cooperative traction simulation.">
+        </figure>
+      </div>
+    </section>
+
+    <section id="release" class="soft">
+      <div class="container">
+        <div class="release">
+          <h2 class="section-title">Release</h2>
+          <h3>Paper, code, and full technical details will be released after publication.</h3>
+          <p>
+            Full technical details will be added after the public paper release.
+          </p>
+          <div class="release-actions">
+            <span class="button disabled">Paper Coming Soon</span>
+            <span class="button disabled">Code Coming Soon</span>
+            <a class="button dark" href="#demos">View Demos</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">MAFA Project Page - https://bbh-huyufeng.github.io/MAFA/</div>
+  </footer>
+</body>
+</html>

@@ -404,6 +404,17 @@
       object-fit: contain;
     }
 
+    .demo.centered-wide {
+      grid-column: 1 / -1;
+      width: min(860px, 100%);
+      justify-self: center;
+    }
+
+    .demo.centered-wide video {
+      aspect-ratio: 16 / 9;
+      object-fit: contain;
+    }
+
     .clip-body {
       padding: 16px 18px 18px;
     }
@@ -559,6 +570,7 @@
             </video>
             <div class="demo-body">
               <h3>Expert Mocap I</h3>
+              <p>Reference motion for traction posture preparation.</p>
             </div>
           </article>
 
@@ -568,6 +580,7 @@
             </video>
             <div class="demo-body">
               <h3>Expert Mocap II</h3>
+              <p>Reference motion for backward pulling dynamics.</p>
             </div>
           </article>
 
@@ -577,6 +590,7 @@
             </video>
             <div class="demo-body">
               <h3>Expert Mocap III</h3>
+              <p>Additional expert trajectory for motion-prior diversity.</p>
             </div>
           </article>
         </div>
@@ -602,7 +616,8 @@
                 <source src="video/FALCON-style.mp4" type="video/mp4">
               </video>
               <div class="clip-body">
-                <h3>FALCON-Style Baseline I</h3>
+                <h3>FALCON-Style Baseline</h3>
+                <p>Reference clip for force-aware baseline behavior.</p>
               </div>
             </article>
 
@@ -611,7 +626,8 @@
                 <source src="video/FALCON-style2.mp4" type="video/mp4">
               </video>
               <div class="clip-body">
-                <h3>FALCON-Style Baseline II</h3>
+                <h3>FALCON-Style Variant</h3>
+                <p>Additional baseline trial under the same display format.</p>
               </div>
             </article>
 
@@ -621,6 +637,7 @@
               </video>
               <div class="clip-body">
                 <h3>Thor-Style Baseline</h3>
+                <p>Reference clip for contact-rich pulling behavior.</p>
               </div>
             </article>
           </div>
@@ -629,6 +646,15 @@
         <div class="experiment-group">
           <h3 class="group-title">Our Method: MAFA</h3>
           <div class="demo-grid">
+            <article class="demo">
+              <video controls muted playsinline preload="metadata">
+                <source src="video/mafa_single_extreme_traction.mp4" type="video/mp4">
+              </video>
+              <div class="demo-body">
+                <h3>Extreme Traction</h3>
+                <p>Single-humanoid pulling under a high-load traction setting.</p>
+              </div>
+            </article>
 
             <article class="demo">
               <video controls muted playsinline preload="metadata">
@@ -636,6 +662,7 @@
               </video>
               <div class="demo-body">
                 <h3>Single Trial I</h3>
+                <p>Real-world MAFA single-humanoid traction behavior.</p>
               </div>
             </article>
 
@@ -645,15 +672,7 @@
               </video>
               <div class="demo-body">
                 <h3>Single Trial II</h3>
-              </div>
-            </article>
-            
-            <article class="demo">
-              <video controls muted playsinline preload="metadata">
-                <source src="video/mafa_single_extreme_traction.mp4" type="video/mp4">
-              </video>
-              <div class="demo-body">
-                <h3>Extreme Traction</h3>
+                <p>Additional single-humanoid traction demonstration.</p>
               </div>
             </article>
           </div>
@@ -675,15 +694,17 @@
             </video>
             <div class="demo-body">
               <h3>Two-Humanoid Cooperation</h3>
+              <p>Real-world team traction with coordinated retreat and compatible pulling postures.</p>
             </div>
           </article>
 
-          <article class="demo">
+          <article class="demo centered-wide">
             <video controls muted playsinline preload="metadata">
               <source src="video/mafa_multi_sim.mp4" type="video/mp4">
             </video>
             <div class="demo-body">
               <h3>Multi-Humanoid Simulation</h3>
+              <p>Simulation preview for larger-team cooperative traction.</p>
             </div>
           </article>
         </div>
@@ -695,6 +716,14 @@
         <div class="release">
           <h2 class="section-title">Release</h2>
           <h3>Project videos and public materials are hosted on this page.</h3>
+          <p>
+            Paper source files and implementation code are not included in this public webpage release.
+          </p>
+          <div class="release-actions">
+            <span class="button disabled">Paper Coming Soon</span>
+            <a class="button" href="#multi-tests">Videos</a>
+            <a class="button dark" href="#single-comparison">View Experiments</a>
+          </div>
         </div>
       </div>
     </section>

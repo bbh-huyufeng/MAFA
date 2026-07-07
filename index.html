@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="MAFA project page for multi-humanoid cooperative extreme traction.">
   <meta name="keywords" content="humanoid robots, cooperative traction, force-aware learning, multi-robot coordination">
-  <meta name="robots" content="noindex,nofollow">
+  <meta name="robots" content="index,follow">
   <link rel="canonical" href="https://bbh-huyufeng.github.io/MAFA/">
 
   <meta property="og:title" content="MAFA: Multi-Humanoid Cooperative Extreme Traction">
@@ -305,6 +305,7 @@
 
     .summary h3,
     .demo h3,
+    .clip h3,
     .release h3 {
       margin: 0 0 8px;
       font-size: 1.08rem;
@@ -313,6 +314,7 @@
 
     .summary p,
     .demo p,
+    .clip p,
     .release p {
       margin: 0;
       color: var(--muted);
@@ -339,7 +341,34 @@
       gap: 16px;
     }
 
+    .clip-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 16px;
+    }
+
+    .experiment-group {
+      margin-top: 34px;
+    }
+
+    .group-title {
+      margin: 0 0 14px;
+      color: var(--accent);
+      font-size: 0.9rem;
+      font-weight: 850;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
     .demo {
+      overflow: hidden;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: #fff;
+      box-shadow: 0 10px 28px rgba(16, 24, 32, 0.06);
+    }
+
+    .clip {
       overflow: hidden;
       border: 1px solid var(--line);
       border-radius: var(--radius);
@@ -355,8 +384,28 @@
       border-bottom: 1px solid var(--line);
     }
 
+    .clip video {
+      aspect-ratio: 16 / 9;
+      object-fit: contain;
+      background: #101820;
+      border-bottom: 1px solid var(--line);
+    }
+
     .demo-body {
       padding: 18px;
+    }
+
+    .demo.featured {
+      grid-column: 1 / -1;
+    }
+
+    .demo.featured video {
+      aspect-ratio: 16 / 9;
+      object-fit: contain;
+    }
+
+    .clip-body {
+      padding: 16px 18px 18px;
     }
 
     .release {
@@ -407,6 +456,7 @@
       }
 
       .summary-grid,
+      .clip-grid,
       .demo-grid {
         grid-template-columns: 1fr;
       }
@@ -441,17 +491,18 @@
 <body>
   <header class="hero">
     <div class="hero-media" aria-hidden="true">
-      <video autoplay muted loop playsinline preload="metadata" poster="website_assets/real_world.png">
-        <source src="media/hero.mp4" type="video/mp4">
+      <video autoplay muted loop playsinline preload="metadata">
+        <source src="video/mafa_dual_traction.mp4" type="video/mp4">
       </video>
     </div>
 
     <nav class="container nav" aria-label="Project navigation">
       <a class="brand" href="https://bbh-huyufeng.github.io/MAFA/">MAFA</a>
       <div class="nav-links">
-        <a href="#video">Video</a>
         <a href="#overview">Overview</a>
-        <a href="#demos">Demos</a>
+        <a href="#two-stage-amp">Two-Stage AMP</a>
+        <a href="#single-comparison">Single Tests</a>
+        <a href="#multi-tests">Multi</a>
         <a href="#release">Release</a>
       </div>
     </nav>
@@ -460,11 +511,10 @@
       <p class="kicker">Project Page</p>
       <h1>MAFA</h1>
       <p class="hero-subtitle">Multi-Humanoid Cooperative Extreme Traction via Adaptive Force-Aware Learning</p>
-      <p class="authors">Alex Chen, Maya Li, David Wang, Sophia Zhang, and Kevin Liu</p>
       <div class="actions">
-        <a class="button dark" href="#video">Video</a>
+        <a class="button dark" href="#single-comparison">Experiments</a>
         <span class="button disabled">Paper Coming Soon</span>
-        <span class="button disabled">Code Coming Soon</span>
+        <a class="button" href="#multi-tests">Videos</a>
       </div>
     </div>
 
@@ -472,21 +522,6 @@
   </header>
 
   <main>
-    <section id="video">
-      <div class="container">
-        <h2 class="section-title">Video</h2>
-        <p class="section-lead">
-          A compact preview of real-world and simulated cooperative traction demonstrations.
-        </p>
-        <div class="video-frame">
-          <video controls muted playsinline preload="metadata" poster="website_assets/real_world.png">
-            <source src="media/overview.mp4" type="video/mp4">
-          </video>
-        </div>
-        <p class="caption">Overview demonstration of cooperative humanoid traction.</p>
-      </div>
-    </section>
-
     <section id="overview" class="soft">
       <div class="container">
         <h2 class="section-title">Overview</h2>
@@ -515,37 +550,151 @@
       </div>
     </section>
 
-    <section id="demos">
+    <section id="two-stage-amp">
       <div class="container">
-        <h2 class="section-title">Experiment Demos</h2>
+        <h2 class="section-title">Two-Stage AMP</h2>
         <p class="section-lead">
-          Real-world and simulation clips for single-humanoid traction, cooperative team pulling, and larger-team extension.
+          Expert mocap clips are organized around a two-stage AMP design that separates traction preparation from engaged backward pulling.
         </p>
 
         <div class="demo-grid">
           <article class="demo">
-            <video controls muted playsinline preload="metadata" poster="website_assets/real_world.png">
-              <source src="media/single_humanoid_traction.mp4" type="video/mp4">
+            <video controls muted playsinline preload="metadata">
+              <source src="video/expert_mocap1.mp4" type="video/mp4">
             </video>
             <div class="demo-body">
-              <h3>Single-Humanoid Traction</h3>
-              <p>Real-world pulling behavior on the humanoid platform.</p>
+              <h3>Expert Mocap I</h3>
+              <p>Reference motion for traction posture preparation.</p>
             </div>
           </article>
 
           <article class="demo">
-            <video controls muted playsinline preload="metadata" poster="website_assets/real_world.png">
-              <source src="media/two_humanoid_cooperative_traction.mp4" type="video/mp4">
+            <video controls muted playsinline preload="metadata">
+              <source src="video/expert_mocap2.mp4" type="video/mp4">
+            </video>
+            <div class="demo-body">
+              <h3>Expert Mocap II</h3>
+              <p>Reference motion for backward pulling dynamics.</p>
+            </div>
+          </article>
+
+          <article class="demo">
+            <video controls muted playsinline preload="metadata">
+              <source src="video/expert_mocap3.mp4" type="video/mp4">
+            </video>
+            <div class="demo-body">
+              <h3>Expert Mocap III</h3>
+              <p>Additional expert trajectory for motion-prior diversity.</p>
+            </div>
+          </article>
+        </div>
+
+        <figure class="figure-frame">
+          <img src="website_assets/two_phase_amp.png" alt="Two-stage AMP design for traction preparation and engaged pulling.">
+        </figure>
+      </div>
+    </section>
+
+    <section id="single-comparison" class="soft">
+      <div class="container">
+        <h2 class="section-title">Single-Humanoid Tests and Comparisons</h2>
+        <p class="section-lead">
+          Single-robot results are grouped into our method and comparison baselines, so the MAFA behavior can be inspected against alternative traction policies.
+        </p>
+
+        <div class="experiment-group">
+          <h3 class="group-title">Our Method: MAFA</h3>
+          <div class="demo-grid">
+            <article class="demo">
+              <video controls muted playsinline preload="metadata">
+                <source src="video/mafa_single_extreme_traction.mp4" type="video/mp4">
+              </video>
+              <div class="demo-body">
+                <h3>Extreme Traction</h3>
+                <p>Single-humanoid pulling under a high-load traction setting.</p>
+              </div>
+            </article>
+
+            <article class="demo">
+              <video controls muted playsinline preload="metadata">
+                <source src="video/mafa_single_traction1.mp4" type="video/mp4">
+              </video>
+              <div class="demo-body">
+                <h3>Single Trial I</h3>
+                <p>Real-world MAFA single-humanoid traction behavior.</p>
+              </div>
+            </article>
+
+            <article class="demo">
+              <video controls muted playsinline preload="metadata">
+                <source src="video/mafa_single_traction2.mp4" type="video/mp4">
+              </video>
+              <div class="demo-body">
+                <h3>Single Trial II</h3>
+                <p>Additional single-humanoid traction demonstration.</p>
+              </div>
+            </article>
+          </div>
+        </div>
+
+        <div class="experiment-group">
+          <h3 class="group-title">Comparison Baselines</h3>
+          <div class="clip-grid">
+            <article class="clip">
+              <video controls muted playsinline preload="metadata">
+                <source src="video/FALCON-style.mp4" type="video/mp4">
+              </video>
+              <div class="clip-body">
+                <h3>FALCON-Style Baseline</h3>
+                <p>Reference clip for force-aware baseline behavior.</p>
+              </div>
+            </article>
+
+            <article class="clip">
+              <video controls muted playsinline preload="metadata">
+                <source src="video/FALCON-style2.mp4" type="video/mp4">
+              </video>
+              <div class="clip-body">
+                <h3>FALCON-Style Variant</h3>
+                <p>Additional baseline trial under the same display format.</p>
+              </div>
+            </article>
+
+            <article class="clip">
+              <video controls muted playsinline preload="metadata">
+                <source src="video/Thor-style.mp4" type="video/mp4">
+              </video>
+              <div class="clip-body">
+                <h3>Thor-Style Baseline</h3>
+                <p>Reference clip for contact-rich pulling behavior.</p>
+              </div>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="multi-tests" class="soft">
+      <div class="container">
+        <h2 class="section-title">Multi-Humanoid Tests</h2>
+        <p class="section-lead">
+          Cooperative tests evaluate whether individual traction skills can be organized into stable team pulling.
+        </p>
+
+        <div class="demo-grid">
+          <article class="demo featured">
+            <video controls muted playsinline preload="metadata">
+              <source src="video/mafa_dual_traction.mp4" type="video/mp4">
             </video>
             <div class="demo-body">
               <h3>Two-Humanoid Cooperation</h3>
-              <p>Team traction with coordinated retreat and compatible pulling postures.</p>
+              <p>Real-world team traction with coordinated retreat and compatible pulling postures.</p>
             </div>
           </article>
 
           <article class="demo">
-            <video controls muted playsinline preload="metadata" poster="website_assets/three_humanoid.png">
-              <source src="media/three_humanoid_simulation.mp4" type="video/mp4">
+            <video controls muted playsinline preload="metadata">
+              <source src="video/mafa_multi_sim.mp4" type="video/mp4">
             </video>
             <div class="demo-body">
               <h3>Multi-Humanoid Simulation</h3>
@@ -553,10 +702,6 @@
             </div>
           </article>
         </div>
-
-        <figure class="figure-frame">
-          <img src="website_assets/three_humanoid.png" alt="Multi-humanoid cooperative traction simulation.">
-        </figure>
       </div>
     </section>
 
@@ -564,14 +709,14 @@
       <div class="container">
         <div class="release">
           <h2 class="section-title">Release</h2>
-          <h3>Paper, code, and full technical details will be released after publication.</h3>
+          <h3>Project videos and public materials are hosted on this page.</h3>
           <p>
-            Full technical details will be added after the public paper release.
+            Paper source files and implementation code are not included in this public webpage release.
           </p>
           <div class="release-actions">
             <span class="button disabled">Paper Coming Soon</span>
-            <span class="button disabled">Code Coming Soon</span>
-            <a class="button dark" href="#demos">View Demos</a>
+            <a class="button" href="#multi-tests">Videos</a>
+            <a class="button dark" href="#single-comparison">View Experiments</a>
           </div>
         </div>
       </div>

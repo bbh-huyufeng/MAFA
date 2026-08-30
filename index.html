@@ -353,6 +353,19 @@
       gap: 16px;
     }
 
+    .validation-grid {
+      width: min(980px, 100%);
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 16px;
+    }
+
+    .validation-grid .demo video {
+      aspect-ratio: 16 / 9;
+      object-fit: contain;
+    }
+
     .experiment-group {
       margin-top: 34px;
     }
@@ -412,7 +425,7 @@
 
     .demo.centered-wide {
       grid-column: 1 / -1;
-      width: min(860px, 100%);
+      width: min(760px, 100%);
       justify-self: center;
     }
 
@@ -514,6 +527,7 @@
       .summary-grid,
       .clip-grid,
       .demo-grid,
+      .validation-grid,
       .field-test-grid {
         grid-template-columns: 1fr;
       }
@@ -774,8 +788,8 @@
 
         <div class="experiment-group">
           <h3 class="group-title">Research Validation</h3>
-          <div class="demo-grid">
-            <article class="demo featured">
+          <div class="validation-grid">
+            <article class="demo">
               <video controls muted playsinline preload="metadata">
                 <source src="video/mafa_dual_traction.mp4" type="video/mp4">
               </video>
@@ -784,7 +798,7 @@
               </div>
             </article>
 
-            <article class="demo featured">
+            <article class="demo">
               <video controls muted playsinline preload="metadata">
                 <source src="video/mafa_dual_traction2.mp4" type="video/mp4">
               </video>
@@ -844,17 +858,14 @@
             <img src="website_assets/game1.jpg" alt="Four humanoid robots competing in a team tug-of-war event." loading="lazy" decoding="async">
             <figcaption>Multi-Humanoid Tug-of-War</figcaption>
           </figure>
-
-          <figure class="gallery-card portrait">
-            <img src="website_assets/game3.png" alt="A competition humanoid wearing medals beside a team member." loading="lazy" decoding="async">
-            <figcaption>Competition Recognition</figcaption>
-          </figure>
-
           <figure class="gallery-card">
             <img src="website_assets/game2.jpg" alt="Humanoid robot teams pulling against each other on the competition field." loading="lazy" decoding="async">
             <figcaption>Coordinated Team Pulling</figcaption>
           </figure>
-
+          <figure class="gallery-card portrait">
+            <img src="website_assets/game3.png" alt="A competition humanoid wearing medals beside a team member." loading="lazy" decoding="async">
+            <figcaption>Competition Recognition</figcaption>
+          </figure>
           <figure class="gallery-card portrait">
             <img src="website_assets/game4.png" alt="Global Times coverage featuring the humanoid robot competition." loading="lazy" decoding="async">
             <figcaption>Featured in the Global Times</figcaption>
